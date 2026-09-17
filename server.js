@@ -65,3 +65,6 @@ res.json(incidencia);
 app.listen(3000, () => {;
     console.log("Servidor ejecutandoce en el puerto 3000")
 });
+
+const incidenciasRoutes = require("./routes/incidencias");
+app.use(incidenciasRoutes);
