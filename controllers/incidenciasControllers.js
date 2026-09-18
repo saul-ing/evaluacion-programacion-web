@@ -42,6 +42,7 @@ const crearIncidencia = (req, res) => {
 };
 
 const cambiarEstadoIncidencia = (req, res) => {
+
     const id = Number(req.params.id);
     const { estado } = req.body;
 
