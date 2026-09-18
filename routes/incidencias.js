@@ -1,11 +1,13 @@
 const express = require("express");
 const router = express.Router();
 const {
+
     obtenerIncidencias,
     obtenerIncidenciaPorId,
     crearIncidencia,
     cambiarEstadoIncidencia,
-    eliminarIncidencia
+    eliminarIncidencia,
+    obtenerEstadisticas
 } = require("../controllers/incidenciasControllers");
 
 router.get("/", obtenerIncidencias);
@@ -13,5 +15,6 @@ router.get("/:id", obtenerIncidenciaPorId);
 router.post("/", crearIncidencia);
 router.patch("/:id/estado", cambiarEstadoIncidencia);
 router.delete("/:id", eliminarIncidencia);
+router.get("/estadisticas", obtenerEstadisticas);
 
 module.exports = router;
