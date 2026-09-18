@@ -3,6 +3,8 @@ const app = express();
 app.use(express.json());
 const incidencias = [];
 let siguienteId = 1;
+const incidenciasRoutes = require('./routes/incidencias');
+app.use('/incidencias', incidenciasRoutes);
 
 
 app.get("/",(req,res) => {
