@@ -10,11 +10,12 @@ const {
     obtenerEstadisticas
 } = require("../controllers/incidenciasControllers");
 
+router.get("/estadisticas", obtenerEstadisticas);
 router.get("/", obtenerIncidencias);
 router.get("/:id", obtenerIncidenciaPorId);
 router.post("/", crearIncidencia);
 router.patch("/:id/estado", cambiarEstadoIncidencia);
 router.delete("/:id", eliminarIncidencia);
-router.get("/estadisticas", obtenerEstadisticas);
+
 
 module.exports = router;

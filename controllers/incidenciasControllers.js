@@ -83,16 +83,13 @@ const obtenerEstadisticas = (req, res) => {
     const totalIncidencias = incidencias.length;
 
     const conteoEstados = incidencias.reduce((conteo, inc) => {
-        if (inc.estado == "Pendiente") conteo.Pendiente++;
-        else if (inc.estado == "En Proceso") conteo["En Proceso"]++;
-        else if (inc.estado == "Resuelta") conteo.Resuelta++;
-        else if (inc.estado == "Cerrada") conteo.Cerrada++;
+        conteo[inc.estado] = (conteo[inc.estado] || 0) + 1;
         return conteo;
-    }, { Pendiente: 0, "En Proceso": 0, Resuelta: 0, Cerrada: 0 });
+    }, {});
 
     return res.status(200).json({
         totalIncidencias,
-        ...conteoEstados,
+        conteoEstados,
     });
 };
 
